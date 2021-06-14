@@ -1,0 +1,250 @@
+/*
+	Calculator demo core SCSS
+	Created:            Jun 2021
+	Created by:         Steve Priestley
+	Last updated:       Jun 2021
+	Last updated by:    Steve Priestley
+*/
+
+    /* Semantic colours */
+    $black:                 #000;
+    $blue:                  #0000ff;
+    $dark-gold:             #606000;
+    $grey:                  #777;
+    $light-grey:            #eee;
+    $red:                   #aa0000;
+    $white:                 #fff;
+
+    /* Theme colours */
+    $border-colour:         #ccc;
+    $header-back:           $light-grey;
+
+    /* Integer variables */
+    $body-size:             16px;
+    $button-width:          3rem;
+    $button-width-double:   6rem;
+
+    $calc-button-font:      22px;
+    $calc-viewport-font:    40px;
+    $calc-viewport-width:   14rem;
+
+    $core-padding:          15px;
+
+    $header-h1:             26px;
+    $header-h2:             24px;
+    $header-h3:             20px;
+
+
+    /********************************/
+    /* Mix-ins                      */
+    /********************************/
+
+
+
+    /********************************/
+    /* Imports / fonts etc.         */
+    /********************************/
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+    /********************************/
+    /* Core                         */
+    /********************************/
+
+        body {
+            font-family:Roboto,Arial,sans-serif;
+            font-size:$body-size;
+            margin:0;
+            color:$black;
+        }
+        p,
+        ul,
+        ol {
+            margin:8px 0;
+        }
+
+
+    /* Skip link */
+
+        .sr-only{
+            position:absolute;
+            border:0;
+            clip:rect(0,0,0,0);
+            height:1px;
+            width:1px;
+            margin:-1px;
+            overflow:hidden;
+            padding:0;
+            white-space:nowrap;
+        }
+
+
+    /********************************/
+    /* Header                       */
+    /********************************/
+
+        #header {
+            background:$header-back;
+            color:$black;
+            padding:$core-padding;
+            margin:0 0 15px 0;
+            box-sizing:border-box;
+        }
+
+
+    /********************************/
+    /* Main                         */
+    /********************************/
+
+        #main {
+            box-sizing:border-box;
+            padding:$core-padding;
+
+            .row {
+                .col {
+                    &.col-first {
+                        float:left;
+                    }
+                    &.col-second {
+                        float:left;
+                        margin:0 0 0 10px;
+                    }
+                    &.calc-functions {
+                        button {
+                            display:block;
+                        }
+                    }
+                }
+            }
+        }
+
+
+    /********************************/
+    /* Forms                        */
+    /********************************/
+
+        form {
+            legend {
+                font-weight:600;
+            }
+            input,
+            select,
+            textarea,
+            button {
+                font-family:Roboto,Arial,sans-serif;
+            }
+            button {
+                padding:0.5rem;
+                margin:0 0.3rem 0.3rem 0;
+                text-align:center;
+                min-width:$button-width;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    cursor:pointer;
+                    filter:invert(1);
+                }
+                &.btn-double-width {
+                    min-width:$button-width-double;
+                }
+                &.unavailable {
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        cursor:not-allowed;
+                        filter:invert(0);
+                    }
+                }
+            }
+        }
+
+
+    /********************************/
+    /* Headers                      */
+    /********************************/
+
+        h1,
+        h2,
+        h3 {
+            font-family:Roboto,Arial,sans-serif;
+            color:$black;
+        }
+        h1 {
+            font-size:$header-h1;
+            padding:0;
+            margin:0;
+        }
+        h2 {
+            font-size:$header-h2;
+            margin:0;
+            padding:0.8rem 0;
+        }
+        h3 {
+            font-size:$header-h3;
+        }
+
+
+    /********************************/
+    /* Footer                       */
+    /********************************/
+
+        #footer {
+            margin:50px 0 0 0;
+            border-top:2px solid $border-colour;
+            color:$black;
+            box-sizing:border-box;
+            padding:$core-padding;
+        }
+
+
+    /********************************/
+    /* Sundries                     */
+    /********************************/
+
+        .clearfix {
+            clear:both;
+        }
+        .m-bottom {
+            margin-bottom:1rem;
+        }
+        .m-left {
+            margin-left:1rem;
+        }
+        .m-right {
+            margin-right:1rem;
+        }
+        .m-top {
+            margin-top:1rem;
+        }
+
+
+
+    /********************************/
+    /* Calculator specifics         */
+    /********************************/
+
+        .calculator {
+            .current-action-container {
+                min-height:1.2rem;
+            }
+            .viewport-window {
+                font-size:$calc-viewport-font;
+                width:$calc-viewport-width;
+            }
+            @each $name, $foreground, $background, $border, $font-weight in (
+                (num,$black,$light-grey,1px solid $light-grey,700),
+                (operator,$white,$blue,1px solid $blue,400),
+                (equals,$white,$dark-gold,1px solid $dark-gold,400)
+            )
+            {
+                .calc-#{$name} {
+                    background:#{$background};
+                    border:#{$border};
+                    color:#{$foreground};
+                    font-weight:#{$font-weight};
+                    font-size:$calc-button-font;
+                }
+            }
+        }

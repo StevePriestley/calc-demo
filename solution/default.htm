@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Calculator demo</title>
+    <meta name="author" content="Steve Priestley - steven@priestley.me.uk">
+    <meta name="robots" content="nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/calculator-head.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+    <a href="#main" class="skip-main sr-only">Skip to main content</a>
+
+    <header id="header" aria-labelledby="main-title">
+        <div class="row">
+            <div class="col">
+                <h1 id="main-title">Calculator demo</h1>
+            </div>
+        </div>
+    </header>
+
+    <main id="main" role="main">
+        <div class="row">
+            <div class="col">
+                <h2 class="sr-only">Calculator</h2>
+                
+                <form>
+                    <legend class="sr-only">Main calculator functions</legend>
+
+                    <div class="calculator">
+                        <div class="row m-bottom">
+                            <div class="col">
+                                <p class="current-action-container"><span class="sr-only">Current calculation: </span><span class="current-action" aria-label="Current calculation"></span></p>
+                            </div>
+                        </div>
+                        <div class="row m-bottom">
+                            <div class="col">
+                                <label for="viewport-window" class="sr-only">Calculation output</label>
+                                <input id="viewport-window" name="viewport-window" value="0" type="text" readonly="readonly" class="viewport-window" aria-label="Calculation output">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-first">
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="button" id="btn-seven" value="7" class="btn calc-num">7</button>
+                                        <button type="button" id="btn-eight" value="8" class="btn calc-num">8</button>
+                                        <button type="button" id="btn-nine" value="9" class="btn calc-num">9</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="button" id="btn-four" value="4" class="btn calc-num">4</button>
+                                        <button type="button" id="btn-five" value="5" class="btn calc-num">5</button>
+                                        <button type="button" id="btn-six" value="6" class="btn calc-num">6</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="button" id="btn-one" value="1" class="btn calc-num">1</button>
+                                        <button type="button" id="btn-two" value="2" class="btn calc-num">2</button>
+                                        <button type="button" id="btn-three" value="3" class="btn calc-num">3</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="button" id="btn-zero" value="0" class="btn calc-num">0</button>
+                                        <button type="button" id="btn-equals" value="equals" class="btn calc-equals" aria-label="Run calculation">=<span class="sr-only"> (Run calculation)</span></button>
+                                        <button type="button" id="btn-decimal" value="." disabled="disabled" title="This feature is not currently available" class="btn calc-num unavailable" aria-label="Insert decimal place (not currently available)">.</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-second calc-functions">
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="button" id="btn-divide" value="/" class="btn calc-operator" aria-label="Divide function">/<span class="sr-only"> (Divide function)</span></button>
+                                        <button type="button" id="btn-multiply" value="*" class="btn calc-operator" aria-label="Multiply function">x<span class="sr-only"> (Multiply function)</span></button>
+                                        <button type="button" id="btn-subtraction" value="-" class="btn calc-operator" aria-label="Subtraction function">&ndash;<span class="sr-only"> (Subtraction function)</span></button>
+                                        <button type="button" id="btn-addition" value="+" class="btn calc-operator" aria-label="Addition function">+<span class="sr-only"> (Addition function)</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row m-top">
+            <div class="col">
+                <h2>History</h2>
+
+                <div id="calc-history">
+                    <p>Calculator history will show here.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/jquery-3.5.1.min.js"></script>
+    <script src="scripts/calculator.js"></script>
+
+</body>
+</html>
